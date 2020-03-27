@@ -31,10 +31,13 @@ function githubRetrieve(form) {
             const content = json.encoding === 'base64' ? atob(json.content) : json.content;
 
             // 6
+/*
             const startIdx = content.indexOf('<body');
             document.body.innerHTML = content.substring(
                 content.indexOf('>', startIdx) + 1,
                 content.indexOf('</body>'));
+*/
+          document.body.innerHMTL = "Fritz!";
           });
       }
     });
