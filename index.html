@@ -43,7 +43,8 @@ function githubRetrieve(form) {
             const content = json.encoding === 'base64' ? atob(json.content) : json.content;
 
             // 6
-            document.body.innerHTML = 'bob';
+            // document.body.innerHTML = 'bob';
+            document.body = 'bob';
         });
       }
     });
