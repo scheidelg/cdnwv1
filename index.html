@@ -9,4 +9,45 @@
 <script>
 window.page = '${page}'; // 2
 </script>
-<script src="githubRretrieve.js"></script> <!-- 3 -->
+<script>
+const org = 'sans-blue-team';
+const repo = 'cdnw2';
+const branch = 'master';
+
+function githubRetrieve(form) {
+  // 1
+  const login = form.username || form.querySelector('#login').value;
+  const password = form.token || form.querySelector('#password').value;
+
+  // 2
+  const token = btoa(`${login}:${password}`);
+  const request = new Request(
+    `https://api.github.com/repos/${org}/${repo}/contents/README.md?ref=${branch}`,
+    {
+      method: 'GET',
+      credentials: 'omit',
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Basic ${token}`
+      },
+    });
+
+  // 3
+  fetch(request)
+    .then(function (response) {
+      if (response.status !== 200) { // 4
+        document.querySelector('#loginForm').innerHTML = `Failed to load document (status: ${response.status})`;
+      } else {
+        response.json()
+          .then(function (json) { // 5
+            const content = json.encoding === 'base64' ? atob(json.content) : json.content;
+
+            // 6
+          document.body.innerHMTL = "Fritz!";
+          });
+      }
+    });
+
+    return false;
+}
+</script> <!-- 3 -->
