@@ -26,8 +26,6 @@ function githubRetrieve(form) {
                 localStorage.setItem('githubPagesAuth', JSON.stringify({ username: login, token: password }));
                 
                 if (typeof authOnlyFlag === 'undefined' || authOnlyFlag === null) {
-                    document.body.innerHTML = "Successful authentication. Credentials saved for SSO."
-                } else {
                     response.json().then(
                         function (json) { // 5
                             const content = json.encoding === 'base64' ? atob(json.content) : json.content;
@@ -42,6 +40,8 @@ function githubRetrieve(form) {
     //            document.write('fritz');
                         }
                     );
+                } else {
+                    document.body.innerHTML = "Successful authentication. Credentials saved for SSO."
                 }
             }
         }
