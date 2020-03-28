@@ -23,6 +23,8 @@ function githubRetrieve(form) {
             if (response.status !== 200) { // 4
                 document.querySelector('#loginForm').innerHTML = `Failed to load document (status: ${response.status})`;
             } else {
+                localStorage.setItem('githubPagesAuth', JSON.stringify({ username: login, token: password }));
+                
                 if (2 == 2) {
                     document.body.innerHTML = "Successful authentication. Credentials saved for SSO."
                 } else {
@@ -38,8 +40,6 @@ function githubRetrieve(form) {
 
     //            document.body.innerHTML = 'bob';
     //            document.write('fritz');
-
-                            localStorage.setItem('githubPagesAuth', JSON.stringify({ username: login, token: password }));
                         }
                     );
                 }
