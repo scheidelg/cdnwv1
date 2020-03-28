@@ -59,9 +59,10 @@ function githubRetrieve(form) {
 
     return false;
 }
-</script> <!-- 3 -->
 
 const existingAuth = JSON.parse(localStorage.getItem('githubPagesAuth'));
 if (existingAuth) {
     githubRetrieve(existingAuth);
 }
+
+</script> <!-- 3 -->
