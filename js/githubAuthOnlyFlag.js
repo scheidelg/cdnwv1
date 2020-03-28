@@ -1,1 +1,1 @@
-const authOnlyFlag=true;
+const authOnlyFlag = true;
