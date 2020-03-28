@@ -41,7 +41,7 @@ function githubRetrieve(form) {
                         }
                     );
                 } else {
-                    document.body.innerHTML = "Successful authentication. Credentials saved for SSO."
+                    document.body.innerHTML = "Successful authentication by '" + login + "'. Credentials saved for SSO."
                 }
             }
         }
