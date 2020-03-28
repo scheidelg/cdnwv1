@@ -21,7 +21,10 @@ function githubRetrieve(form) {
     fetch(request).then(
         function (response) {
             if (response.status == 401) { // 4
-                document.querySelector('#loginForm').innerHTML = `Failed authentication by ${login}.`;
+                document.querySelector('#loginForm').innerHTML = `Failed GitHub authentication to ${org} / ${repo} / ${branch} by ${login}.`;
+//            } else if (response.status = 404) {
+//                document.querySelector('#loginForm').innerHTML = `GitHub authentication by ${login}.`;
+               
             } else if (response.status == 200) {
                 localStorage.setItem('githubPagesAuth', JSON.stringify({ username: login, token: password }));
                 
@@ -41,7 +44,7 @@ function githubRetrieve(form) {
                         }
                     );
                 } else {
-                    document.body.innerHTML = "Successful GitHub authentication by '" + login + "'. Credentials saved for SSO."
+                    document.body.innerHTML = `Successful GitHub authentication to ${org} / ${repo} / ${branch} by ${login}. Credentials saved for SSO.`
                 }
             } else
                 document.querySelector('#loginForm').innerHTML = `Failed to load document (status: ${response.status})`;
