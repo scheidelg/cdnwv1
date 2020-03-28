@@ -17,9 +17,8 @@ function githubRetrieve(form, authOnlyFlag) {
         }
     );
 
-  // 3
-  fetch(request)
-    .then(function (response) {
+    // 3
+    fetch(request).then(function (response) {
       if (response.status !== 200) { // 4
         document.querySelector('#loginForm').innerHTML = `Failed to load document (status: ${response.status})`;
       } else {
