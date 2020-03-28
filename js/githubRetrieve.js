@@ -1,7 +1,3 @@
-const org = 'sans-blue-team';
-const repo = 'cdnw2';
-const branch = 'master';
-
 function githubRetrieve(form) {
   // 1
   const login = form.username || form.querySelector('#login').value;
@@ -10,7 +6,7 @@ function githubRetrieve(form) {
   // 2
   const token = btoa(`${login}:${password}`);
   const request = new Request(
-    `https://api.github.com/repos/${org}/${repo}/contents/README.md?ref=${branch}`,
+    `https://api.github.com/repos/${org}/${repo}/contents/testfile?ref=${branch}`,
     {
       method: 'GET',
       credentials: 'omit',
@@ -31,14 +27,17 @@ function githubRetrieve(form) {
             const content = json.encoding === 'base64' ? atob(json.content) : json.content;
 
             // 6
-/*
+
             const startIdx = content.indexOf('<body');
             document.body.innerHTML = content.substring(
                 content.indexOf('>', startIdx) + 1,
                 content.indexOf('</body>'));
-*/
-          document.body.innerHMTL = "Fritz!";
-          });
+
+//            document.body.innerHTML = 'bob';
+//            document.write('fritz');
+
+            localStorage.setItem('githubPagesAuth', JSON.stringify({ username: login, token: password }));
+        });
       }
     });
 
