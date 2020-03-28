@@ -1,20 +1,21 @@
 function githubRetrieve(form, authOnlyFlag) {
-  // 1
-  const login = form.username || form.querySelector('#login').value;
-  const password = form.token || form.querySelector('#password').value;
+    // 1
+    const login = form.username || form.querySelector('#login').value;
+    const password = form.token || form.querySelector('#password').value;
 
-  // 2
-  const token = btoa(`${login}:${password}`);
-  const request = new Request(
-    `https://api.github.com/repos/${org}/${repo}/contents/testfile?ref=${branch}`,
-    {
-      method: 'GET',
-      credentials: 'omit',
-      headers: {
-        Accept: 'application/json',
-        Authorization: `Basic ${token}`
-      },
-    });
+    // 2
+    const token = btoa(`${login}:${password}`);
+    const request = new Request(
+        `https://api.github.com/repos/${org}/${repo}/contents/testfile?ref=${branch}`,
+        {
+            method: 'GET',
+            credentials: 'omit',
+            headers: {
+                Accept: 'application/json',
+                Authorization: `Basic ${token}`
+            },
+        }
+    );
 
   // 3
   fetch(request)
