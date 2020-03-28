@@ -1,4 +1,4 @@
-function githubRetrieve(form, authOnlyFlag) {
+function githubRetrieve(form) {
     // 1
     const login = form.username || form.querySelector('#login').value;
     const password = form.token || form.querySelector('#password').value;
