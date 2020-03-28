@@ -12,7 +12,7 @@ window.page = '${page}'; // 2
 <script>
 const org = 'sans-blue-team';
 const repo = 'cdnw2';
-const branch = 'master';
+const branch = 'test';
 
 function githubRetrieve(form) {
   // 1
@@ -22,7 +22,7 @@ function githubRetrieve(form) {
   // 2
   const token = btoa(`${login}:${password}`);
   const request = new Request(
-    `https://api.github.com/repos/${org}/${repo}/contents/README.md?ref=${branch}`,
+    `https://api.github.com/repos/${org}/${repo}/contents/testfile?ref=${branch}`,
     {
       method: 'GET',
       credentials: 'omit',
@@ -44,13 +44,13 @@ function githubRetrieve(form) {
 
             // 6
 
-//            const startIdx = content.indexOf('<body');
-//            document.body.innerHTML = content.substring(
-//                content.indexOf('>', startIdx) + 1,
-//                content.indexOf('</body>'));
+            const startIdx = content.indexOf('<body');
+            document.body.innerHTML = content.substring(
+                content.indexOf('>', startIdx) + 1,
+                content.indexOf('</body>'));
 
-            // document.body.innerHTML = 'bob';
-            document.write('fritz');
+//            document.body.innerHTML = 'bob';
+//            document.write('fritz');
         });
       }
     });
