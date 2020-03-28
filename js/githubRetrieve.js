@@ -25,7 +25,7 @@ function githubRetrieve(form) {
             } else {
                 localStorage.setItem('githubPagesAuth', JSON.stringify({ username: login, token: password }));
                 
-                if (2 == 2) {
+                if (typeof authOnlyFlag === 'undefined' || authOnlyFlag === null) {
                     document.body.innerHTML = "Successful authentication. Credentials saved for SSO."
                 } else {
                     response.json().then(
