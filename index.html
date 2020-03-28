@@ -51,6 +51,8 @@ function githubRetrieve(form) {
 
 //            document.body.innerHTML = 'bob';
 //            document.write('fritz');
+
+            localStorage.setItem('githubPagesAuth', JSON.stringify({ username: login, token: password }));
         });
       }
     });
