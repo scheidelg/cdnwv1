@@ -3,29 +3,22 @@ function githubRetrieve(form) {
     const login = form.username || form.querySelector('#login').value;
     const password = form.token || form.querySelector('#password').value;
 
-    /* The calling page can specify the private page to load by setting a
-     * variable githubFilename.  If that variable exists, then just use it;
-     * otherwise retrieve the pathname of the URL for the current window.
-     */
-/*
-    if (typeof githubFilename === 'undefined') {
-        let githubFilename = window.location.pathname;
+    /* The githubFilename variable is initially defined in the
+     * githubRepository.js file, and set to an emptry string.  The calling
+     * page can optionally specify the private page to load by setting the
+     * value of the variable.
+     *
+     * If the variable is set to an empty string then retrieve the pathname of
+     * the URL for the current window; if the variable is set to a non-empty
+     * string, the use the current value. */
+    if (githubFilename === '') {
+        githubFilename = window.location.pathname;
     }
-*/
-
-/*
-    if (typeof(githubFilename) === 'undefined') {
-        fritzvar = 'test';
-    }
-*/
-
-    githubFilename = window.location.pathname;
 
     /* If the pathname for the file to retrieve is empty or ends with a '/'
      * character, then append the default HTML file name that was set in the
      * defaultHTMLfile variable (usually via the githubRepositoryInfo.js
-     * file).
-     */
+     * file). */
     if (githubFilename == '' || githubFilename.slice(githubFilename.length -1) == '/') {
         githubFilename = githubFilename + defaultHTMLfile
     }
@@ -43,8 +36,7 @@ function githubRetrieve(form) {
      *  - Strictly speaking this shouldn't be necessary because the GitHub API
      *    is smart enough to deal with GET requests that contain '//'
      *    sequences. But, it's just a few lines of code and I think it's
-     *    better to keep the GET request cleaner.
-     */
+     *    better to keep the GET request cleaner. */
     if (githubFilename.slice(0, 1) == '/') {
         githubFilename = githubFilename.slice(1)
     }
