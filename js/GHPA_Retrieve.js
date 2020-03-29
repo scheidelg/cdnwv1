@@ -104,7 +104,7 @@ function GHPA_Retrieve(form) {
             /* Updating  document.getElementById("loginForm").innerHTML
              * instead of document.body.innerHTML to avoid a Javascript error
              * if the content wasn't successfully retrieved. */
-             document.getElementById("loginForm").innerHTML = `Failed to load ${GHPA_Org} / ${GHPA_Repo} / ${GHPA_Branch} / ${GHPA_Filename} by ${login} (status: ${response.status}).`;
+             document.getElementById("GHPA_loginForm").innerHTML = `Failed to load ${GHPA_Org} / ${GHPA_Repo} / ${GHPA_Branch} / ${GHPA_Filename} by ${login} (status: ${response.status}).`;
         }
     });
 
