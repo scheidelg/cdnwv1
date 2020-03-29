@@ -3,16 +3,24 @@
     <head>
     </head>
     <body>
-        <p>Access <a href="file1_exists.html">'file1_exists.html'</a> from the private repository. The stub file exists in the public repository and the corresponding private file exists in the private repository.</p>
+        <dl>
+            <dt><a href="file1_exists.html">Public stub file, correspinding private file</a></dt>
+            <dd>The stub file 'file1_exists.html exists in the public repository and a corresponding private file exists in the private repository.</dd>
 
-        <p>Use <a href="file2_exists.html">'file2_exists.html'</a> to load 'file2_exists.html' from the private repository but without using or caching credentials. The stub file exists in the public repository and the corresponding private file exists in the private repository, but the stub file explicitly includes a flag to not cache credentials.</p>
+            <dt><a href="file2_exists.html">Public stub file, corresponding private file, no SSO</a></dt>
+            <dd>The stub file 'file2_exists.html' exists in the private repository and a corresponding private file exists in the private repository. However, the public stub file explicitly includes a flag to use or cache credentials.</dd>
 
-        <p>Use <a href="explicit.html">'explicit.html'</a> to load 'file1_exists.html' from the private repository. The stub file 'explicit.html' exists but explicitly identifies 'file1_exists.html' as the file to load from the private repository.</p>
+            <dt><a href="explicit.html">Public stub file, explicity private file</a></dt>
+            <dd>The stub file 'explicit.html' exists in the public repository but explicitly identifies 'file1_exists.html' as the file to load from the private repository.</dd>
 
-        <p>Attempt to access <a href="no_file.html">'no_file.html'</a> from the private repository. The stub file exists in the public repository but there's no corresponding file in the private repository.</p>
+            <dt><a href="no_file.html">No public stub file</a></dt>
+            <dd>The stub file 'no_file.html' exists in the public repository but there's no corresponding file in the private repository.</dd>
 
-        <p>Access the <a href="login.html">login</a> page to authenticate to the private repository without actually loading a private file, and cache credentials. This is useful only to establish authentication for SSO.</p>
+            <dt><a href="login.html">Login to private repository</a></dt>
+            <dd>Access the login page to authenticate to the private repository without actually loading a private file, and cache credentials. This is useful only to establish authentication for SSO.</dd>
 
-        <p>Access the <a href="logout.html">logout</a> page to clear cached credentials.</p>
+            <dt><a href="logout.html">Loutout of the private repository</a></dt>
+            <dd>Cleasr cached credentials. The next attempt to access content from the private repository requires providing authentication credentials.</dd>
+        </dl>
     </body>
 </html>
