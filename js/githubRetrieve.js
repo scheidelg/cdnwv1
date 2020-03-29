@@ -1,5 +1,8 @@
 function githubRetrieve(form) {
-    // 1
+
+    /* Extract the login and password that were passed to this function
+     * (either from the authentication form or retrieved from
+     * localStorage). */
     const login = form.username || form.querySelector('#login').value;
     const password = form.token || form.querySelector('#password').value;
 
@@ -40,8 +43,7 @@ function githubRetrieve(form) {
     }
 
     /* Create the authentication token using the login and password that were
-     * passed to this function (either from the authentication form or
-     * retrieved from localStorage). */
+     * passed to this function. */
     const token = btoa(`${login}:${password}`);
     
     // Craft the GitHub GET request to retrieve the specified file.
