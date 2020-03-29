@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            li { margin-bottom: 10 px; }
+            p { margin-bottom: 10px; }
+        </style>
     </head>
     <body>
-        <ul style="margin-bottom: 10px;">
+        <ul>
             <li><a href="file1_exists.html">Public stub file, correspinding private file</a>
-                <br>The stub file 'file1_exists.html exists in the public repository and a corresponding private file exists in the private repository.
+                <p>The stub file 'file1_exists.html exists in the public repository and a corresponding private file exists in the private repository.</p>
             </li>
 
             <li><a href="file2_exists.html">Public stub file, corresponding private file, no SSO</a>
-                <br>The stub file 'file2_exists.html' exists in the private repository and a corresponding private file exists in the private repository. However, the public stub file explicitly includes a flag to use or cache credentials.
+                <p>The stub file 'file2_exists.html' exists in the private repository and a corresponding private file exists in the private repository. However, the public stub file explicitly includes a flag to use or cache credentials.</p>
             </li>
 
             <li><a href="explicit.html">Public stub file, explicity private file</a>
-                <br>The stub file 'explicit.html' exists in the public repository but explicitly identifies 'file1_exists.html' as the file to load from the private repository.
+                <p>The stub file 'explicit.html' exists in the public repository but explicitly identifies 'file1_exists.html' as the file to load from the private repository.</p>
             </li>
 
             <li><a href="no_file.html">No public stub file</a>
-                <br>The stub file 'no_file.html' exists in the public repository but there's no corresponding file in the private repository.
+                <p>The stub file 'no_file.html' exists in the public repository but there's no corresponding file in the private repository.</p>
             </li>
 
             <li><a href="login.html">Login to private repository</a>
-                <br>Access the login page to authenticate to the private repository without actually loading a private file, and cache credentials. This is useful only to establish authentication for SSO.
+                <p>Access the login page to authenticate to the private repository without actually loading a private file, and cache credentials. This is useful only to establish authentication for SSO.</p>
             </li>
 
             <li><a href="logout.html">Logout of the private repository</a>
-                <br>Clear cached credentials. The next attempt to access content from the private repository requires providing authentication credentials.
+                <p>Clear cached credentials. The next attempt to access content from the private repository requires providing authentication credentials.</p>
             </li>
         </ul>
     </body>
