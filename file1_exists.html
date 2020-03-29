@@ -3,20 +3,11 @@
     <head>
         <script src="js/githubRepositoryInfo.js"></script>
         <script src="js/githubRetrieve.js"></script>
-        <script src="js/githubSSO.js"></script>
-        <script>
-            fetch("/loginform.html").then(function (response) {
-                return response.text();
-            }).then(function (data) {
-                document.getElementById("loginForm").innerHTML = data;
-            });
-        </script>
+        <script src="js/githubLoadPate.js"></script>
     </head>
     <body>
         <div id="loginForm">
             <p>Loading content...</p>
         </div>
-
-
     </body>
 </html>
