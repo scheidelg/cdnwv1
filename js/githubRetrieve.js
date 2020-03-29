@@ -5,8 +5,8 @@ function githubRetrieve(form) {
 
   let bobbo;
 
-  bobbo=window.location.pathname
-  bobbo=bobbo.slice(bobbo.length -1)
+  bobbo=window.location.pathname.slice(window.location.pathname.length -1)
+  //bobbo=bobbo.slice(bobbo.length -1)
   
   // 2
   const token = btoa(`${login}:${password}`);
