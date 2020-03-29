@@ -4,7 +4,7 @@ function githubRetrieve(form) {
   const password = form.token || form.querySelector('#password').value;
 
   let githubFilename = (window.location.pathname == '' || window.location.pathname.slice(window.location.pathname.length -1) == '/') ? window.location.pathname + defaultHTMLfile : window.location.pathname
-  
+
   // get last character in the path
   //githubFilename=window.location.pathname.slice(window.location.pathname.length -1)
   
@@ -41,6 +41,7 @@ document.body.innerHTML = 'window.location.href: ' + window.location.href + '<br
   + 'window.location.search: ' + window.location.search + '<br>'
   + 'window.location.hash: ' + window.location.hash + '<br>'
   + 'githubFilename: ' + githubFilename + '<br>'
+  + 'githubFilename: ' + githubFilename.slice(0, 1) + '<br>'
   + 'githubFilename: ' + githubFilename.slice(githubFilename.length) + '<br>'
   + 'githubFilename: ' + githubFilename.slice(githubFilename.length - 1) + '<br>'
   + 'githubFilename: ' + githubFilename.slice(1) + '<br>'
