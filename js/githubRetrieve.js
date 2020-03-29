@@ -19,13 +19,14 @@ function githubRetrieve(form) {
     if (githubFilename.slice(0, 1) == '/') {
         githubFilename = githubFilename.slice(1)
     }
-  
+
+// defining an extra variable to swap into the API request for testing, when I want it to fail to find a file.
 let fritz='fritz';
     
     // 2
     const token = btoa(`${login}:${password}`);
     const request = new Request(
-        `https://api.github.com/repos/${org}/${repo}/contents/${fritz}?ref=${branch}`,
+        `https://api.github.com/repos/${org}/${repo}/contents/${githubFilename}?ref=${branch}`,
         {
             method: 'GET',
             credentials: 'omit',
@@ -36,14 +37,12 @@ let fritz='fritz';
         }
     );
 
-  // 3
-  fetch(request)
-    .then(function (response) {
+    // 3
+    fetch(request).then(function (response) {
       if (response.status !== 200) { // 4
         document.querySelector('#loginForm').innerHTML = `Failed to load GitHub document ${org} / ${repo} / ${githubFilename} (status: ${response.status})`;
       } else {
-        response.json()
-          .then(function (json) { // 5
+        response.json().then(function (json) { // 5
             const content = json.encoding === 'base64' ? atob(json.content) : json.content;
 
             // 6
