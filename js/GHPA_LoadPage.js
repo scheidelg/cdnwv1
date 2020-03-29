@@ -1,6 +1,6 @@
-const existingAuth = JSON.parse(localStorage.getItem('githubPagesAuth'));
-if (githubSSO && existingAuth) {
-    githubRetrieve(existingAuth);
+const GHPA_existingAuth = JSON.parse(localStorage.getItem('githubPagesAuth'));
+if (GHPA_SSO_Flag && GHPA_existingAuth) {
+    githubRetrieve(GHPA_existingAuth);
 } else {
     fetch("/loginform.html").then(function (response) {
         return response.text();
