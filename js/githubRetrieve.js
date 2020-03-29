@@ -116,5 +116,5 @@ function githubRetrieve(form) {
 }
 function githubTest(element) {
     let varx = 1;
-    element.style.display='';
+    //element.style.display='';
 }
