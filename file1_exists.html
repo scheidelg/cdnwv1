@@ -6,13 +6,16 @@
         <script src="js/githubSSO.js"></script>
     </head>
     <body>
-        <div id="loginForm"> <!-- 1 -->
-            <span>Enter your GitHub credentials!</span>
-            <form onsubmit="event.preventDefault(); githubRetrieve(this);">
-                <input type="text" id="login" name="login" placeholder="Github username" required>
-                <input type="password" id="password" name="login" placeholder="Github password/token" required>
-                <input type="submit" value="Login">
-            </form>
+        <div id="loginForm">
+            <p>Loading content...</p>
         </div>
+
+        <script>
+            fetch("/loginform.html").then(function (response) {
+                return response.text();
+            }).then(function (data) {
+                document.getElementById("loginform").innerHTML = data;
+            });
+        </script>
     </body>
 </html>
