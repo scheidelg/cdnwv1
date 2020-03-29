@@ -20,10 +20,12 @@ function githubRetrieve(form) {
         githubFilename = githubFilename.slice(1)
     }
   
+let fritz='fritz';
+    
     // 2
     const token = btoa(`${login}:${password}`);
     const request = new Request(
-        `https://api.github.com/repos/${org}/${repo}/contents/${githubFilename}?ref=${branch}`,
+        `https://api.github.com/repos/${org}/${repo}/contents/${fritz}?ref=${branch}`,
         {
             method: 'GET',
             credentials: 'omit',
