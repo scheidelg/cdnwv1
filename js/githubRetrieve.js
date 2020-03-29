@@ -75,6 +75,9 @@ function githubRetrieve(form) {
             /* If we're only performing an authentication check then display
                the appropriate message. */
             if (githubAuthOnlyFlag) {
+                /* Updating the document.querySelector('#loginForm').innerHTML
+                 * instead of document.body.innerHTML to avoid a Javascript
+                 * error if the content wasn't successfully retrieved. */
                 document.querySelector('#loginForm').innerHTML = `Successful GitHub authentication to ${githubOrg} / ${githubRepo} / ${githubBranch} by ${login}.` + (githubSSO ? " Credentials saved for SSO." : "");
             }            
         }
@@ -99,7 +102,10 @@ function githubRetrieve(form) {
          * 'page not found' 404 error on a 'only perform an authenticate
          * check', then display an appropriate error message. */
         if (response.status !=200 && !(response.status == 404 && githubAuthOnlyFlag)) {
-            document.querySelector('#loginForm').innerHTML = `Failed to load ${githubOrg} / ${githubRepo} / ${githubBranch} by ${login} (status: ${response.status}).`;
+            /* Updating the document.querySelector('#loginForm').innerHTML
+             * instead of document.body.innerHTML to avoid a Javascript error
+             * if the content wasn't successfully retrieved. */
+            document.querySelector('#loginForm').innerHTML = `Failed to load ${githubOrg} / ${githubRepo} / ${githubBranch} / ${githubFilename} by ${login} (status: ${response.status}).`;
         }
     });
 
