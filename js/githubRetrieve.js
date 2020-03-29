@@ -13,6 +13,10 @@ function githubRetrieve(form) {
     }
 */
 
+    if (typeof githubFilename === 'undefined') {
+        fritzvar = 'test';
+    }
+
     let githubFilename = window.location.pathname;
 
     /* If the pathname for the file to retrieve is empty or ends with a '/'
