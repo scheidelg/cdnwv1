@@ -4,12 +4,6 @@
         <script src="js/githubRepositoryInfo.js"></script>
         <script src="js/githubRetrieve.js"></script>
         <script src="js/githubSSO.js"></script>
-    </head>
-    <body>
-        <div id="loginForm">
-            <p>Loading content...</p>
-        </div>
-
         <script>
             fetch("/loginform.html").then(function (response) {
                 return response.text();
@@ -17,5 +11,12 @@
                 document.getElementById("loginForm").innerHTML = data;
             });
         </script>
+    </head>
+    <body>
+        <div id="loginForm">
+            <p>Loading content...</p>
+        </div>
+
+
     </body>
 </html>
