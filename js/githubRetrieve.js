@@ -34,7 +34,8 @@ document.body.innerHTML = 'window.location.href: ' + window.location.href + '<br
   + 'window.location.port: ' + window.location.port + '<br>'
   + 'window.location.pathname: ' + window.location.pathname + '<br>'
   + 'window.location.search: ' + window.location.search + '<br>'
-  + 'window.location.hash: ' + window.location.hash;
+  + 'window.location.hash: ' + window.location.hash + '<br>'
+  + 'bobbo: ' + bobbo;
 
       } else {
         response.json()
