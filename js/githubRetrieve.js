@@ -20,7 +20,8 @@ function githubRetrieve(form) {
   fetch(request)
     .then(function (response) {
       if (response.status !== 200) { // 4
-        document.querySelector('#loginForm').innerHTML = `Failed to load GitHub document ${org} / ${repo} / stbobbo (status: ${response.status})`;
+//        document.querySelector('#loginForm').innerHTML = `Failed to load GitHub document ${org} / ${repo} / stbobbo (status: ${response.status})`;
+          document.body.innerHTML = 'bob';
       } else {
         response.json()
           .then(function (json) { // 5
