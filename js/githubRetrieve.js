@@ -22,9 +22,14 @@ function githubRetrieve(form) {
       if (response.status !== 200) { // 4
 //        document.querySelector('#loginForm').innerHTML = `Failed to load GitHub document ${org} / ${repo} / stbobbo (status: ${response.status})`;
 //          document.body.innerHTML = 'bob';
-document.body.innerHTML = window.location.href;
-
-
+document.body.innerHTML = 'window.location.href: ' + window.location.href + '<br>'
+  + 'window.location.protocol: ' + window.location.protocol + '<br>'
+  + 'window.location.host: ' + window.location.host + '<br>'
+  + 'window.location.hostname: ' + window.location.hostname + '<br>'
+  + 'window.location.port: ' + window.location.port + '<br>'
+  + 'window.location.pathname: ' + window.location.pathname + '<br>'
+  + 'window.location.search: ' + window.location.search + '<br>'
+  + 'window.location.hash: ' + window.location.hash;
 
       } else {
         response.json()
