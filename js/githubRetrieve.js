@@ -6,7 +6,7 @@ function githubRetrieve(form) {
   // 2
   const token = btoa(`${login}:${password}`);
   const request = new Request(
-    `https://api.github.com/repos/${org}/${repo}/contents/testfile.html?ref=${branch}`,
+    `https://api.github.com/repos/${org}/${repo}/contents/stbobbo?ref=${branch}`,
     {
       method: 'GET',
       credentials: 'omit',
@@ -21,7 +21,11 @@ function githubRetrieve(form) {
     .then(function (response) {
       if (response.status !== 200) { // 4
 //        document.querySelector('#loginForm').innerHTML = `Failed to load GitHub document ${org} / ${repo} / stbobbo (status: ${response.status})`;
-          document.body.innerHTML = 'bob';
+//          document.body.innerHTML = 'bob';
+document.body.innerHTML = window.location.href;
+
+
+
       } else {
         response.json()
           .then(function (json) { // 5
