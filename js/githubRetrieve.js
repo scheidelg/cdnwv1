@@ -39,10 +39,14 @@ function githubRetrieve(form) {
         githubFilename = githubFilename.slice(1)
     }
 
-    // 2
+    /* Create the authentication token using the login and password that were
+     * passed to this function (either from the authentication form or
+     * retrieved from localStorage). */
     const token = btoa(`${login}:${password}`);
+    
+    // Craft the GitHub GET request to retrieve the specified file.
     const request = new Request(
-        `https://api.github.com/repos/${org}/${repo}/contents/${githubFilename}?ref=${branch}`,
+        `https://api.github.com/repos/${githubOrg}/${githubRepo}/contents/${githubFilename}?ref=${githubBranch}`,
         {
             method: 'GET',
             credentials: 'omit',
@@ -53,11 +57,30 @@ function githubRetrieve(form) {
         }
     );
 
-    // 3
+    // send the GitHub GET request and process the results
     fetch(request).then(function (response) {
-        if (response.status !== 200) { // 4
-            document.querySelector('#loginForm').innerHTML = `Failed to load GitHub document ${org} / ${repo} / ${githubFilename} (status: ${response.status})`;
-        } else {
+        
+        /* If we received a response code that indicates successful
+         * authentication, then we might want to store credentials and/or
+         * display a message indicating successful authentication. */
+        if (response.status == 200 || response.status == 404) {
+            
+            // if SSO is enabled, then store credentials
+            if (githubSSO) {
+                localStorage.setItem('githubPagesAuth', JSON.stringify({ username: login, token: password }));
+            }
+            
+            /* If we're only performing an authentication check then display
+               the appropriate message. */
+            if (githubAuthOnlyFlag) {
+                document.body.innerHTML = `Successful GitHub authentication to ${githubOrg} / ${githubRepo} / ${githubBranch} by ${login}.` + (githubSSO ? " Credentials saved for SSO." : "");
+            }            
+        }
+
+        /* If we successfully retrieved the contents and we are *not* only
+         * performing an authentication check, then display the retrieved
+         * content. */
+        if (response.status == 200 && ! githubAuthOnlyFlag) {        
             response.json().then(function (json) { // 5
                 const content = json.encoding === 'base64' ? atob(json.content) : json.content;
 
@@ -67,13 +90,19 @@ function githubRetrieve(form) {
                     content.indexOf('>', startIdx) + 1,
                     content.indexOf('</body>'));
 
-//            document.body.innerHTML = 'bob';
-//            document.write('fritz');
-
-//            localStorage.setItem('githubPagesAuth', JSON.stringify({ username: login, token: password }));
             });
+        }
+
+        /* If we didn't successfully retrieve the content, and didn't get a
+         * 'page not found' 404 error on a 'only perform an authenticate
+         * check', then display an appropriate error message. */
+        if (response.status !=200 && !(response.status == 404 && githubAuthOnlyFlag)) {
+            document.body.innerHTML = `Failed to load ${githubOrg} / ${githubRepo} / ${githubBranch} by ${login} (status: ${response.status}).`;
         }
     });
 
+    /* We're calling this on submission of an HTML form where we've prevented
+     * the default form action from firing.  So it doesn't really matter
+     * what we return from this form... but we should return *something.* */
     return false;
 }
