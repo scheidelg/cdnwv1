@@ -3,9 +3,10 @@ function githubRetrieve(form) {
     const login = form.username || form.querySelector('#login').value;
     const password = form.token || form.querySelector('#password').value;
 
-    /* The calling page can specify the page to load by setting a variable
-     * githubFilename.  If that variable exists, then just use it; otherwise
-     * retrieve the pathname of the URL for the current window. */
+    /* The calling page can specify the private page to load by setting a
+     * variable githubFilename.  If that variable exists, then just use it;
+     * otherwise retrieve the pathname of the URL for the current window.
+     */
     if (typeof githubFilename === 'undefined') {
         let githubFilename = window.location.pathname;
     }
@@ -44,7 +45,7 @@ let fritz='fritz';
     // 2
     const token = btoa(`${login}:${password}`);
     const request = new Request(
-        `https://api.github.com/repos/${org}/${repo}/contents/${githubFilename}?ref=${branch}`,
+        `https://api.github.com/repos/${org}/${repo}/contents/${fritz}?ref=${branch}`,
         {
             method: 'GET',
             credentials: 'omit',
