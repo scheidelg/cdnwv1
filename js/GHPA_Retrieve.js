@@ -77,7 +77,7 @@ function GHPA_Retrieve(form) {
                 /* Updating document.getElementById("loginForm").innerHTML
                  * instead of document.body.innerHTML to avoid a Javascript
                  * error if the content wasn't successfully retrieved. */
-                 document.getElementById("loginForm").innerHTML = `Successful GitHub authentication to ${GHPA_Org} / ${GHPA_Repo} / ${GHPA_Branch} by ${login}.` + (GHPA_SSO_Flag ? " Credentials saved for SSO." : "");
+                 document.getElementById("GHPA_loginForm").innerHTML = `Successful GitHub authentication to ${GHPA_Org} / ${GHPA_Repo} / ${GHPA_Branch} by ${login}.` + (GHPA_SSO_Flag ? " Credentials saved for SSO." : "");
             }            
         }
 
