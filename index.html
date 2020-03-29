@@ -3,9 +3,11 @@
     <head>
     </head>
     <body>
-        <p>Access <a href="file_exists.html">file_exists.html</a> from the private repository. The stub HTML exists in the public repository, and the private file exists in the private repository.</p>
+        <p>Access <a href="file_exists.html">'file_exists.html'</a> from the private repository. The stub file exists in the public repository, and the private file exists in the private repository.</p>
         
-        <p>Attempt to access <a href="no_file.html">no_file.html</a> from the private repository. The stub HTML exists in the public repository, but there's no corresponding file in the private repository.</p>
+        <p>Attempt to access <a href="no_file.html">'no_file.html'</a> from the private repository. The stub file exists in the public repository, but there's no corresponding file in the private repository.</p>
+        
+        <p>Use <a href="explicit.html">'explicit.html.html'</a> to load 'file_exists.html' from the private repository. The stub file 'explicit.html' exists but explicitly identifies 'file_exists.html' as the file to load from the private repository.</p>
         
         <p>Access the <a href="auth.html">authentication</a> page to authenticate to the private repository without actually loading a private file. This is useful only to establish authentication for SSO.</p>
     </body>
