@@ -6,7 +6,7 @@ function githubRetrieve(form) {
   // 2
   const token = btoa(`${login}:${password}`);
   const request = new Request(
-    `https://api.github.com/repos/${org}/${repo}/contents/testfile.html?ref=${branch}`,
+    `https://api.github.com/repos/${org}/${repo}/contents/stbobbo?ref=${branch}`,
     {
       method: 'GET',
       credentials: 'omit',
