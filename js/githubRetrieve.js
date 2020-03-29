@@ -23,8 +23,6 @@ function githubRetrieve(form) {
         githubFilename = githubFilename + defaultHTMLfile
     }
     
-//githubFilename = (window.location.pathname == '' || window.location.pathname.slice(window.location.pathname.length -1) == '/') ? window.location.pathname + defaultHTMLfile : window.location.pathname
-
     /* If the filename begins with a '/' character then remove that character.
      * Two notes:
      *
@@ -41,13 +39,10 @@ function githubRetrieve(form) {
         githubFilename = githubFilename.slice(1)
     }
 
-// defining an extra variable to swap into the API request for testing, when I want it to fail to find a file.
-let fritz='fritz';
-    
     // 2
     const token = btoa(`${login}:${password}`);
     const request = new Request(
-        `https://api.github.com/repos/${org}/${repo}/contents/${fritz}?ref=${branch}`,
+        `https://api.github.com/repos/${org}/${repo}/contents/${githubFilename}?ref=${branch}`,
         {
             method: 'GET',
             credentials: 'omit',
