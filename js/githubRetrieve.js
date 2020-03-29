@@ -7,10 +7,14 @@ function githubRetrieve(form) {
      * variable githubFilename.  If that variable exists, then just use it;
      * otherwise retrieve the pathname of the URL for the current window.
      */
+/*
     if (typeof githubFilename === 'undefined') {
         let githubFilename = window.location.pathname;
     }
-    
+*/
+
+    githubFilename = window.location.pathname;
+
     /* If the pathname for the file to retrieve is empty or ends with a '/'
      * character, then append the default HTML file name that was set in the
      * defaultHTMLfile variable (usually via the githubRepositoryInfo.js
