@@ -3,17 +3,23 @@ function githubRetrieve(form) {
   const login = form.username || form.querySelector('#login').value;
   const password = form.token || form.querySelector('#password').value;
 
+  /* Retrieve the pathname of the URL that is being accessed.  If the pathname
+   * is empty or ends with a '/' character, then append the default HTML file
+   * name that was set in the githubFilename variable, usually via the
+   * githubRepositoryInfo.js file.
+   */
   let githubFilename = (window.location.pathname == '' || window.location.pathname.slice(window.location.pathname.length -1) == '/') ? window.location.pathname + defaultHTMLfile : window.location.pathname
+
+  /* Retrieve the pathname of the URL that is being accessed.  If the pathname
+   * If the filename begins with a '/' character then remove that character.
+   * Strictly speaking this shouldn't be necessary because the GitHub API
+   * is smart enough to deal with GET requests that contain '//' sequences.
+   * But, it's just a few lines of code and I think it's better to keep the
+   * GET request cleaner.
+   */
   if (githubFilename.slice(0, 1) == '/') {
       githubFilename = githubFilename.slice(1)
   }
-  // get last character in the path
-  //githubFilename=window.location.pathname.slice(window.location.pathname.length -1)
-  
-  // get everything except first character in the path
-//  githubFilename=window.location.pathname.slice(2)
-  
- // githubFilename=window.location.pathname;;
   
   // 2
   const token = btoa(`${login}:${password}`);
