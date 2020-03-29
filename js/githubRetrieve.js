@@ -18,7 +18,7 @@ function githubRetrieve(form) {
   // 2
   const token = btoa(`${login}:${password}`);
   const request = new Request(
-    `https://api.github.com/repos/${org}/${repo}/contents/` + 'bobbo' + `?ref=${branch}`,
+    `https://api.github.com/repos/${org}/${repo}/contents/` + githubFilename + `?ref=${branch}`,
     {
       method: 'GET',
       credentials: 'omit',
@@ -67,7 +67,7 @@ document.body.innerHTML = 'window.location.href: ' + window.location.href + '<br
 //            document.body.innerHTML = 'bob';
 //            document.write('fritz');
 
-            localStorage.setItem('githubPagesAuth', JSON.stringify({ username: login, token: password }));
+//            localStorage.setItem('githubPagesAuth', JSON.stringify({ username: login, token: password }));
         });
       }
     });
