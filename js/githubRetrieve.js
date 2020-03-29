@@ -13,7 +13,7 @@ function githubRetrieve(form) {
     }
 */
 
-    if (typeof githubFilename === 'undefined') {
+    if (typeof(githubFilename) === 'undefined') {
         fritzvar = 'test';
     }
 
