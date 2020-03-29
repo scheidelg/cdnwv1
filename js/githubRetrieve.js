@@ -5,12 +5,13 @@ function githubRetrieve(form) {
 
   let githubFilename; // = window.location.pathname.slice(window.location.pathname.length -1) == '/' ?
   
-  
   // get last character in the path
   //githubFilename=window.location.pathname.slice(window.location.pathname.length -1)
   
   // get everything except first character in the path
-  githubFilename=window.location.pathname.slice(2)
+//  githubFilename=window.location.pathname.slice(2)
+  
+  githubFilename=window.location.pathname;;
   
   // 2
   const token = btoa(`${login}:${password}`);
@@ -39,7 +40,14 @@ document.body.innerHTML = 'window.location.href: ' + window.location.href + '<br
   + 'window.location.pathname: ' + window.location.pathname + '<br>'
   + 'window.location.search: ' + window.location.search + '<br>'
   + 'window.location.hash: ' + window.location.hash + '<br>'
-  + 'githubFilename: ' + githubFilename;
+  + 'githubFilename: ' + githubFilename + '<br>'
+  + 'githubFilename: ' + githubFilename.slice(githubFilename.length) + '<br>'
+  + 'githubFilename: ' + githubFilename.slice(githubFilename.length - 1) + '<br>'
+  + 'githubFilename: ' + githubFilename.slice(1) + '<br>'
+  + 'githubFilename: ' + githubFilename.slice(2) + '<br>'
+  + 'githubFilename: ' + githubFilename.slice(20) + '<br>';
+
+       
 
       } else {
         response.json()
