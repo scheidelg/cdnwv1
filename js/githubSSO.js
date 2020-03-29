@@ -1,6 +1,6 @@
 const existingAuth = JSON.parse(localStorage.getItem('githubPagesAuth'));
 githubSSO = true;
 if (existingAuth) {
-    document.style.display="none";
+    document.body.style.display="none";
     githubRetrieve(existingAuth);
 }
