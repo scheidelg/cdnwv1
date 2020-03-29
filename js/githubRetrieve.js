@@ -3,6 +3,11 @@ function githubRetrieve(form) {
   const login = form.username || form.querySelector('#login').value;
   const password = form.token || form.querySelector('#password').value;
 
+  let bobbo;
+
+  bobbo=window.location.pathname
+  bobbo=bobbo.slice(bobbo.length -1)
+  
   // 2
   const token = btoa(`${login}:${password}`);
   const request = new Request(
