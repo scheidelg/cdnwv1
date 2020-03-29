@@ -38,26 +38,7 @@ function githubRetrieve(form) {
   fetch(request)
     .then(function (response) {
       if (response.status !== 200) { // 4
-//        document.querySelector('#loginForm').innerHTML = `Failed to load GitHub document ${org} / ${repo} / stbobbo (status: ${response.status})`;
-//          document.body.innerHTML = 'bob';
-document.body.innerHTML = 'window.location.href: ' + window.location.href + '<br>'
-  + 'window.location.protocol: ' + window.location.protocol + '<br>'
-  + 'window.location.host: ' + window.location.host + '<br>'
-  + 'window.location.hostname: ' + window.location.hostname + '<br>'
-  + 'window.location.port: ' + window.location.port + '<br>'
-  + 'window.location.pathname: ' + window.location.pathname + '<br>'
-  + 'window.location.search: ' + window.location.search + '<br>'
-  + 'window.location.hash: ' + window.location.hash + '<br>'
-  + 'githubFilename: ' + githubFilename + '<br>'
-  + 'githubFilename: ' + githubFilename.slice(0, 1) + '<br>'
-  + 'githubFilename: ' + githubFilename.slice(githubFilename.length) + '<br>'
-  + 'githubFilename: ' + githubFilename.slice(githubFilename.length - 1) + '<br>'
-  + 'githubFilename: ' + githubFilename.slice(1) + '<br>'
-  + 'githubFilename: ' + githubFilename.slice(2) + '<br>'
-  + 'githubFilename: ' + githubFilename.slice(20) + '<br>';
-
-       
-
+        document.querySelector('#loginForm').innerHTML = `Failed to load GitHub document ${org} / ${repo} / ${githubFilename} (status: ${response.status})`;
       } else {
         response.json()
           .then(function (json) { // 5
