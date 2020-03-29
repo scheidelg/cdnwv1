@@ -5,7 +5,7 @@
         <script src="js/githubRetrieve.js"></script>
         <script src="js/githubSSO.js"></script>
     </head>
-    <body onload="githubTest(this)">
+    <body style="display:none;" onload="githubTest(this)">
         <div id="loginForm"> <!-- 1 -->
             <span>Enter your GitHub credentials!</span>
             <form onsubmit="event.preventDefault(); githubRetrieve(this);">
