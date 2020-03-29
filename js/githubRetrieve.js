@@ -114,7 +114,3 @@ function githubRetrieve(form) {
      * what we return from this form... but we should return *something.* */
     return false;
 }
-function githubTest() {
-    let varx = 1;
-    document.body.style.display='';
-}
