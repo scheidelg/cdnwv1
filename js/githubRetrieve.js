@@ -3,10 +3,14 @@ function githubRetrieve(form) {
   const login = form.username || form.querySelector('#login').value;
   const password = form.token || form.querySelector('#password').value;
 
-  let bobbo;
-
-  bobbo=window.location.pathname.slice(window.location.pathname.length -1)
-  //bobbo=bobbo.slice(bobbo.length -1)
+  let githubFilename; // = window.location.pathname.slice(window.location.pathname.length -1) == '/' ?
+  
+  
+  // get last character in the path
+  //githubFilename=window.location.pathname.slice(window.location.pathname.length -1)
+  
+  // get everything except first character in the path
+  githubFilename=window.location.pathname.slice(2)
   
   // 2
   const token = btoa(`${login}:${password}`);
@@ -35,7 +39,7 @@ document.body.innerHTML = 'window.location.href: ' + window.location.href + '<br
   + 'window.location.pathname: ' + window.location.pathname + '<br>'
   + 'window.location.search: ' + window.location.search + '<br>'
   + 'window.location.hash: ' + window.location.hash + '<br>'
-  + 'bobbo: ' + bobbo;
+  + 'githubFilename: ' + githubFilename;
 
       } else {
         response.json()
