@@ -1,13 +1,13 @@
-const GHPA_existingAuth = JSON.parse(localStorage.getItem('githubPagesAuth'));
+const ghpaExistingAuth = JSON.parse(localStorage.getItem('ghpaToken'));
 
-if (GHPA_SSO_Flag && GHPA_existingAuth) {
-    GHPA_Retreive(GHPA_existingAuth);
+if (ghpaSSOFlag && ghpaExistingAuth) {
+    ghpaRetrieve(ghpaExistingAuth);
 } else {
     fetch("/loginform.html").then(function (response) {
         return response.text();
     }).then(function (data) {
-        document.getElementById("GHPA_loginForm").innerHTML = data;
+        document.getElementById("ghpaLoginForm").innerHTML = data;
     });
     
-    //document.getElementById("GHPA_prompt").style.display = "block";
+    //document.getElementById("ghpaPrompt").style.display = "block";
 }
