@@ -1,1 +1,1 @@
-localStorage.removeItem('githubPagesAuth');
+localStorage.removeItem('ghpaToken');
