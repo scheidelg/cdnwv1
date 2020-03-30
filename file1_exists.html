@@ -16,6 +16,11 @@
         <!-- Load the GHPA functions. -->
         <script src="js/GHPA.js"></script>
     </head>
+
+    <!-- After the <body> is done loading: If desired and possible, then load
+         content from the private GitHub repository; otherwise display the
+         login form and (if an attempt to load content was made) status
+         message. -->
     <body onload="ghpaLoadPage()">
         <!-- content to be displayed if JavaScript isn't enabled -->
         <noscript><p>
@@ -61,14 +66,5 @@
              repository, then the contents of the ghpaAuthMessage element are
              replaced with a status message. -->
         <div id="ghpaAuthMessage" style="font-style: italic;"></div>
-
-        <!-- Load content from the private GitHub repository if desired and
-             possible; otherwise display a login form and status message.
-
-             This script file needs to be loaded within (ideally at the bottom
-             of) the <body>; otherwise it will generate an error when it tries
-             to modify elements within the <body> that haven't yet been
-             loaded. -->
-<!--        <script src="js/ghpaLoadPage.js"></script> -->
     </body>
 </html>
