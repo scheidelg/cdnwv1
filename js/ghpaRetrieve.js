@@ -99,6 +99,7 @@ function ghpaRetrieve(form) {
                  * the user successfully logs in, we don't want to confuse
                  * them by still presenting a login form. */
                 document.getElementById("ghpaLoginForm").style.display = "none";
+
                 /* Make sure the authentication message is displayed.  Setting
                  * style.display to '' (empty string) in JavaScript resets to
                  * the default value. */
