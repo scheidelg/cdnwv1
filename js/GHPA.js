@@ -1,3 +1,18 @@
+/* Load the public variables that configure the GHPA environment,
+             including the private GitHub organization, repository, and branch
+             from which we want to retrieve content.
+
+             Switch this over to a JSON configuration file later. */
+const ghpaOrg = 'sans-blue-team';
+const ghpaRepo = 'cdnw2';
+const ghpaBranch = 'test';
+const ghpaDefaultHTMLfile = 'index.html';
+let ghpaSSOFlag = true;
+let ghpaFilename = '';
+let ghpaAuthOnlyFlag = false;
+
+/*============================================================================
+----------------------------------------------------------------------------*/
 function ghpaClearSSO() {
    localStorage.removeItem('ghpaToken');
 }
