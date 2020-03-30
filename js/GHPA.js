@@ -3,10 +3,13 @@ GitHub Pages Authentication (GHP-Auth or GHPA)
 
 For details on GHPA see:
 
- - GitHub repository: https://github.com/scheidelg/ghpa
+ - GHPA GitHub repository: https://github.com/scheidelg/ghpa
  
- - Corresponding GitHub Pages website: https://scheidelg.github.io/ghpa or
-   https://ghpa.scheidel.net
+ - Corresponding GHPA website, published through GitHub Pages:
+   https://scheidelg.github.io/ghpa or https://ghpa.scheidel.net
+   
+ - GHPA GitHub repository - README.md:
+   https://github.com/scheidelg/ghpa/blob/master/README.md>README.md
 
 The GHPA JavaScript and example HTML contain a large amount of comments,
 which you may want to strip out before using on a website.
