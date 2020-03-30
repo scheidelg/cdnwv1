@@ -9,5 +9,5 @@ if (!(ghpaSSOFlag && ghpaExistingAuth && ghpaRetrieve(ghpaExistingAuth))) {
         document.getElementById("ghpaLoginForm").innerHTML = data;
     });
     
-    document.getElementById("ghpaAuthFailure").style.display = "block";
+    document.getElementById("ghpaAuthMessage").style.display = "block";
 }
