@@ -8,11 +8,13 @@
 
         <!-- Load the public variables that configure the GHPA environment,
              including the private GitHub organization, repository, and branch
-             from which we want to retrieve content. -->
+             from which we want to retrieve content.
+
+             Switch this over to a JSON configuration file later. -->
         <script src="js/ghpaConfig.js"></script>
 
-        <!-- Load the rest of the GHPA functions. -->
-        <script src="js/ghpaFunctions.js"></script>
+        <!-- Load the GHPA functions. -->
+        <script src="js/GHPA.js"></script>
     </head>
     <body onload="ghpaLoadPage()">
         <!-- content to be displayed if JavaScript isn't enabled -->
