@@ -1,6 +1,6 @@
 const ghpaExistingAuth = JSON.parse(localStorage.getItem('ghpaToken'));
 
-if (!(ghpaSSOFlag && ghpaExistingAuth && ghpaRetrieve(ghpaExistingAuth));
+if (!(ghpaSSOFlag && ghpaExistingAuth && ghpaRetrieve(ghpaExistingAuth))) {
     fetch("/loginform.html").then(function (response) {
         return response.text();
     }).then(function (data) {
