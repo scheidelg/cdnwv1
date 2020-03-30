@@ -4,15 +4,17 @@
         <script src="js/ghpaConfig.js"></script>
         <script>GHPA_Filename='file1_exists.html';</script>
         <script src="js/ghpaRetrieve.js"></script>
-        <script src="js/ghpaLoadPage.js"></script>
     </head>
     <body>
         <noscript><p>
             GHPA requires client-side JavaScript to be enabled. Please enable JavaScript and reload the page.
         <p></noscript>
 
+        <div id="ghpaPrompt" style="display: none;"><p>This is a prompt with some page-specific information.</p></div>
         <div id="ghpaLoginForm">
             <p>Loading content...</p>
         </div>
+        <div id="ghpaAuthMessage" style="display: none; font-style: italic;"></div>
+        <script src="js/ghpaLoadPage.js"></script>
     </body>
 </html>
