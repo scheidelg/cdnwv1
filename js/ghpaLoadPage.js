@@ -8,6 +8,4 @@ if (!(ghpaSSOFlag && ghpaExistingAuth && ghpaRetrieve(ghpaExistingAuth))) {
     }).then(function (data) {
         document.getElementById("ghpaLoginForm").innerHTML = data;
     });
-    
-    document.getElementById("ghpaAuthMessage").style.display = "";
 }
