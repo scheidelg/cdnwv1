@@ -94,11 +94,6 @@ function ghpaRetrieve(form) {
              * them by still presenting a login form. */
             document.getElementById("ghpaLoginForm").style.display = "none";
 
-            /* Make sure the authentication message is displayed.  Setting
-             * style.display to '' (empty string) in JavaScript resets to
-             * the default value. */
-            document.getElementById("ghpaAuthMessage").style.display = "";
-
         /* If we successfully retrieved the contents and we are not performing
          * an authentication-only check, then display the retrieved
          * content. */
