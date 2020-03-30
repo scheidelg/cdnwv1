@@ -62,17 +62,13 @@
              replaced with a status message. -->
         <div id="ghpaAuthMessage" style="font-style: italic;"></div>
 
-        <!-- The code in ghpaLoadPage.js attempts to retrieve authentication
-             credentials from memory and - if SSO is enabled - use them to
-             retrieve content from the private GitHub repository.
+        <!-- Load content from the private GitHub repository if desired and
+             possible; otherwise display a login form and status message.
 
-             If SSO is enabled, authentication credentials can be retrieved
-             from memory, and the private GitHub repository file can be
-             retrieved; then the page content is replaced with the retrieved
-             content.
-
-             Otherwise, the login form is loaded and (if there was a failed
-             attempt to load content) a status message displayed. -->
+             This script file needs to be loaded within (ideally at the bottom
+             of) the <body>; otherwise it will generate an error when it tries
+             to modify elements within the <body> that haven't yet been
+             loaded. -->
         <script src="js/ghpaLoadPage.js"></script>
     </body>
 </html>
