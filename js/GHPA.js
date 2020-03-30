@@ -1,9 +1,15 @@
 /*============================================================================
 GitHub Pages Authentication (GHP-Auth or GHPA)
 
-(blah blah blah)
-strip comments if you want, from this and sample HTML files
-ghpa.scheidel.net / github.io (whatever it is)
+For details on GHPA see:
+
+ - GitHub repository: https://github.com/scheidelg/ghpa
+ 
+ - Corresponding GitHub Pages website: https://scheidelg.github.io/ghpa or
+   https://ghpa.scheidel.net
+
+The GHPA JavaScript and example HTML contain a large amount of comments,
+which you may want to strip out before using on a website.
 ----------------------------------------------------------------------------*/
 
 
