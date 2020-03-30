@@ -13,7 +13,8 @@ This script file needs to be loaded within (ideally at the bottom of) the
 <body>; otherwise it will generate an error when it tries to modify elements
 within the <body> that haven't yet been loaded.
 ----------------------------------------------------------------------------*/
-                 
+function ghpaLoadPage() {
+
 /* Attempt to retrieve GitHub authentication credentials from localStorage.
  *
  * This is horribly insecure because any JavaScript on the page can access
@@ -52,4 +53,5 @@ if (!(ghpaSSOFlag && ghpaExistingAuth && ghpaRetrieve(ghpaExistingAuth))) {
     }).then(function (data) {
         document.getElementById("ghpaLoginForm").innerHTML = data;
     });
+}
 }
