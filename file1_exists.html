@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            li { margin-top: 16px; }
+            p { margin-bottom: 8px; margin-bottom: 8px; }
+        </style>
+        
         <script src="js/ghpaConfig.js"></script>
         <script src="js/ghpaRetrieve.js"></script>
     </head>
@@ -11,15 +16,19 @@
 
         <div id="ghpaPrompt" style="display: none;">
             <h1>Public stub file, corresponding private file</h1>
-            <p>The stub file 'file1_exists.html' exists in the public repository and a corresponding private file exists in the private repository.</p>
-            <p>If you haven't authenticated to the private GitHub repository yet, then this page will briefly display a 'Loading content...' that is automatically replaced by this introductory content and a login form.</p>
-            <p>If you unsuccessfully authenticate to the GitHub private repository, then this page will still display this introductory content and a login form but will also display a an authentication response message identifying the type of failure.</p>
-            <p>Once you authenticate to the private GitHub repository:
-                <ul>
-                    <li> this page will be replaced by the contents of the 'file1_exists.html' file from the private repository;</li>
-                    <li> your authentication credentials will be stored in memory for future use; and</li>
-                    <li> if you refresh this page or access other pages that use the stored authentication credentila, then the page will again briefly display a 'Loading content...' message and attempt to load the contents of the file from the private repository.</li>
+            <ul>
+                <li>The stub file 'file1_exists.html' exists in the public repository and a corresponding private file exists in the private repository.</li>
+                <li>If you haven't authenticated to the private GitHub repository yet, then this page will briefly display a 'Loading content...' message that is automatically replaced by this introductory content and a login form.</li>
+                <li>If you unsuccessfully authenticate to the GitHub private repository, then this page will still display this introductory content and a login form but will also display a an authentication response message identifying the type of failure.</li>
+                <li>Once you authenticate to the private GitHub repository:
+                    <ul>
+                        <li> this page will be replaced by the contents of the 'file1_exists.html' file from the private repository;</li>
+                        <li> your authentication credentials will be stored in memory for future use; and</li>
+                        <li> if you refresh this page or access other pages that use the stored authentication credentials, then the page will again briefly display a 'Loading content...' message and attempt to load the contents of the file from the private repository.</li>
+                    </ul>
+                </li>
             </ul>
+            <hr>
         </div>
         <div id="ghpaLoginForm">
             <p>Loading content...</p>
