@@ -72,7 +72,7 @@ function ghpaRetrieve(form) {
             
             // if SSO is enabled, then store credentials
             if (ghpaSSOFlag) {
-                localStorage.setItem('githubPagesAuth', JSON.stringify({ username: login, token: password }));
+                localStorage.setItem('ghpaToken', JSON.stringify({ username: login, token: password }));
             }
             
             /* If we're only performing an authentication check, then display
