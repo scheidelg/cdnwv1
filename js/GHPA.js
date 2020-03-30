@@ -1,3 +1,7 @@
+function ghpaClearSSO() {
+   localStorage.removeItem('ghpaToken');
+}
+
 /*============================================================================
 Attempt to retrieve authentication credentials from memory and - if SSO is
 enabled - use them to retrieve content from the private GitHub repository.
