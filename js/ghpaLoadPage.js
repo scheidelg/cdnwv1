@@ -7,5 +7,5 @@ if (!(ghpaSSOFlag && ghpaExistingAuth && ghpaRetrieve(ghpaExistingAuth))) {
         document.getElementById("ghpaLoginForm").innerHTML = data;
     });
     
-    document.getElementById("ghpaPrompt").style.display = "block";
+    document.getElementById("bobby").style.display = "block";
 }
