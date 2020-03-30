@@ -1,5 +1,7 @@
 function ghpaRetrieve(form) {
 
+    let fetchResponse=0; // really the only reason we need this is so that we can do a final check at the end, outside of the scope of the fetch request
+    
     /* Extract the login and password that were passed to this function
      * (either from the authentication form or retrieved from
      * localStorage). */
@@ -59,7 +61,6 @@ function ghpaRetrieve(form) {
 
     // send the GitHub GET request and process the results
     fetch(request).then(function (response) {
-        
         /* If we received a response code that indicates successful
          * authentication, then:
          *
@@ -151,6 +152,11 @@ function ghpaRetrieve(form) {
         
             document.getElementById("ghpaAuthMessage").innerHTML = authMessage;
         }
+        
+        /* Save response.status so that we can check the response status
+         * outside of the response function (i.e., at the end when we're
+         * setting a return value for this entire function. */
+        fetchResponse=response.status;
     });
 
     /* We're calling this from one of two places:
@@ -170,5 +176,5 @@ function ghpaRetrieve(form) {
      *      as displaying a prompt and/or an error message, or presenting the
      *      login form.
      */
-    return (response.status == 200);
+    return (fetchResponse == 200);
 }
