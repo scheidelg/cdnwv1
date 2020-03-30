@@ -4,9 +4,12 @@
 <!-- if you want to have an auth page but display a static message, then dont' bother with ghpaAuthOnly Flag - just have this ref a login.html in the private repo -->
 <html>
     <head>
-        <script src="js/ghpaConfig.js"></script>
+        <!-- Load the GHPA functions and initial configuration. -->
+        <script src="js/GHPA.js"></script>
+
+        <!-- Set the flag to identify that we only want to authenticate to the
+             private GitHub repository; we don't want to load a file. -->
         <script>ghpaAuthOnlyFlag = true;</script>
-        <script src="js/ghpaRetrieve.js"></script>
     </head>
     <body>
         <noscript><p>
