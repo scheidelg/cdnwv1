@@ -61,8 +61,13 @@ function ghpaRetrieve(form) {
     fetch(request).then(function (response) {
         
         /* If we received a response code that indicates successful
-         * authentication, then we might want to store credentials and/or
-         * display a message indicating successful authentication. */
+         * authentication, then:
+         *
+         *  - if ghpaSSOFlag, then store credentials for later user
+         *
+         *  - if ghpaAuthOnlyFlag, then display a confirmation message
+         *
+         */
         if (response.status == 200 || response.status == 404) {
             
             // if SSO is enabled, then store credentials
@@ -70,13 +75,32 @@ function ghpaRetrieve(form) {
                 localStorage.setItem('githubPagesAuth', JSON.stringify({ username: login, token: password }));
             }
             
-            /* If we're only performing an authentication check then display
-               the appropriate message. */
+            /* If we're only performing an authentication check, then display
+             * an appropriate message.
+             *
+             * Note that when only performing an authentication check, a
+             * response.status of 404 is really what we want, as it indicates
+             * that authentication was successful but the specified file
+             * ghpaFilename doesn't exist in the private repository.  If the
+             * specified file does exist in the private repository and we want
+             * to display it (perhaps as a static "authentication successful"
+             * message instead of the dynamic message rendered in code below),
+             * then we wouldn't do a ghpaAuthOnlyFlag 'authentication only'
+             * test. */
             if (ghpaAuthOnlyFlag) {
-                /* Updating document.getElementById("loginForm").innerHTML
+                /* Updating
+                 * document.getElementById("ghpaAuthMessage").innerHTML
                  * instead of document.body.innerHTML to avoid a Javascript
                  * error if the content wasn't successfully retrieved. */
-                 document.getElementById("ghpaLoginForm").innerHTML = `Successful GitHub authentication to ${ghpaOrg} / ${ghpaRepo} / ${ghpaBranch} by ${login}.` + (ghpaSSOFlag ? " Credentials saved for SSO." : "");
+                 document.getElementById("ghpaAuthMessage").innerHTML = `Confirmed GitHub authentication to ${ghpaOrg} / ${ghpaRepo} / ${ghpaBranch} by ${login}.` + (ghpaSSOFlag ? " Credentials saved for SSO." : "");
+
+                /* Hide the login form (if it's currently displayed).  Once
+                 * the user successfully logs in, we don't want to confuse
+                 * them by still presenting a login form. */
+                document.getElementById("ghpaLoginForm").style.display = "none";
+
+                /* Make sure the authentication message is displayed. */
+                document.getElementById("ghpaAuthMessage").style.display = "none";
             }            
         }
 
@@ -103,7 +127,7 @@ function ghpaRetrieve(form) {
             /* Updating  document.getElementById("loginForm").innerHTML
              * instead of document.body.innerHTML to avoid a Javascript error
              * if the content wasn't successfully retrieved. */
-             document.getElementById("ghpaLoginForm").innerHTML = `Failed to load ${ghpaOrg} / ${ghpaRepo} / ${ghpaBranch} / ${ghpaFilename} by ${login} (status: ${response.status}).`;
+             document.getElementById("ghpaAuthMessage").innerHTML = `Failed to load ${ghpaOrg} / ${ghpaRepo} / ${ghpaBranch} / ${ghpaFilename} by ${login} (status: ${response.status}).`;
         }
     });
 
