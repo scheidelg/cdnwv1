@@ -108,8 +108,22 @@ function GHPA_Retrieve(form) {
         }
     });
 
-    /* We're calling this on submission of an HTML form where we've prevented
-     * the default form action from firing.  So it doesn't really matter
-     * what we return from this form... but we should return *something.* */
-    return false;
+    /* We're calling this from one of two places:
+     *
+     *  (a) On submission of an HTML form where we've prevented the default
+     *      form action from firing.
+     *
+     *      In this case it doesn't really matter what we return from this
+     *      function... but we should return *something.*
+     *
+     *  (b) From GHPA_LoadPage.js when both SSO is enabled and authentication
+     *      credentials are in localStorage.
+     *
+     *      In this case we want to return true/false to identify whether
+     *      content was successfully loaded.  That way the loading script code
+     *      can determine whether any additional action needs to be taken such
+     *      as displaying a prompt and/or an error message, or presenting the
+     *      login form.
+     */
+    return (response.status == 200);
 }
