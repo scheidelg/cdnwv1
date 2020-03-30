@@ -15,8 +15,11 @@
              authenticate to GitHub and optionally load content from a private
              repository. -->
         <script src="js/ghpaRetrieve.js"></script>
+
+        <!-- temp -->
+        <script src="js/ghpaLoadPage.js"></script>
     </head>
-    <body>
+    <body onload="ghpaLoadPage()">
         <!-- content to be displayed if JavaScript isn't enabled -->
         <noscript><p>
             GHPA requires client-side JavaScript to be enabled. Please enable JavaScript and reload the page.
@@ -69,6 +72,6 @@
              of) the <body>; otherwise it will generate an error when it tries
              to modify elements within the <body> that haven't yet been
              loaded. -->
-        <script src="js/ghpaLoadPage.js"></script>
+<!--        <script src="js/ghpaLoadPage.js"></script> -->
     </body>
 </html>
