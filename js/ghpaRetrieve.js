@@ -92,7 +92,7 @@ function ghpaRetrieve(form) {
                  * document.getElementById("ghpaAuthMessage").innerHTML
                  * instead of document.body.innerHTML to avoid a Javascript
                  * error if the content wasn't successfully retrieved. */
-                 document.getElementById("ghpaAuthMessage").innerHTML = `Confirmed GitHub authentication to ${ghpaOrg} / ${ghpaRepo} / ${ghpaBranch} by ${login}.` + (ghpaSSOFlag ? " Credentials saved for SSO." : "");
+                 document.getElementById("ghpaAuthMessage").innerHTML = `Confirmed GitHub authentication to ${ghpaOrg} / ${ghpaRepo} / ${ghpaBranch} as ${login}.` + (ghpaSSOFlag ? " Credentials saved for SSO." : "");
 
                 /* Hide the login form (if it's currently displayed).  Once
                  * the user successfully logs in, we don't want to confuse
@@ -120,14 +120,36 @@ function ghpaRetrieve(form) {
             });
         }
 
-        /* If we didn't successfully retrieve the content, and didn't get a
-         * 'page not found' 404 error on a 'only perform an authenticate
-         * check', then display an appropriate error message. */
-        if (response.status !=200 && !(response.status == 404 && ghpaAuthOnlyFlag)) {
-            /* Updating  document.getElementById("loginForm").innerHTML
+        /* If we didn't successfully retrieve the content, then display an
+         * appropriate error message. */
+        if (response.status != 200) {
+            /* Define a variable to build the message to display, so that we
+             * can just have one instance in this section where we set the
+             * message. */
+            let authMessage = '';
+            
+            /* Updating document.getElementById("ghpaAuthMessage").innerHTML
              * instead of document.body.innerHTML to avoid a Javascript error
              * if the content wasn't successfully retrieved. */
-             document.getElementById("ghpaAuthMessage").innerHTML = `Failed to load ${ghpaOrg} / ${ghpaRepo} / ${ghpaBranch} / ${ghpaFilename} by ${login} (status: ${response.status}).`;
+
+            /* If this is an authentication-only check and the response code
+             * was *not* 404 (file not found), then display an error message
+             * specific to 'authentication failed. */
+            if (ghpaAuthOnlyFlag && response.status != 404) {
+                authMessage = `Failed to authenticate to ${ghpaOrg} / ${ghpaRepo} / ${ghpaBranch} as ${login} (status: ${response.status}).`;
+
+            /* If this was an attempt to actually retrieve content (i.e., not
+             * an authentication-only check), then display a generic error
+             * message.
+             *
+             * Note: We can check present error-specific messages here if
+             * desired; either inside this 'else' or through a series of
+             * 'else if' statements. */
+            } else {
+                authMessage = `Failed to load ${ghpaOrg} / ${ghpaRepo} / ${ghpaBranch} / ${ghpaFilename} as ${login} (status: ${response.status}).`;
+            }
+        
+            document.getElementById("ghpaAuthMessage").innerHTML = authMessage;
         }
     });
 
